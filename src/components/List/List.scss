@@ -1,0 +1,47 @@
+
+.list {
+    li {
+        display: flex;
+        align-items: center;
+        cursor: pointer;
+        padding: 10px 12px;
+        margin-bottom: 5px;
+
+        &.active {
+            background: #FFFFFF;
+            box-shadow: 0px 3px 10px rgba(0, 0, 0, 0.04);
+            border-radius: 4px;
+        }
+
+        i {
+            display: inline-flex;
+            margin-right: 10px;
+            img {
+                opacity: 0.6;
+            }
+        }
+        .badge {
+            width: 10px;
+            height: 10px;
+            border-radius: 30px;
+            position: relative;
+            left: 3px;
+
+            &--green {
+                background-color: #42B883;
+            }
+            &--blue {
+                background-color: #64C4ED;
+            }
+            &--pink {
+                background-color: #FFBBCC;
+            }
+            &--green-2 {
+                background-color: #B6E6BD;
+            }
+            &--grey {
+                background-color: #C9D1D3;
+            }
+        }
+    }
+}
