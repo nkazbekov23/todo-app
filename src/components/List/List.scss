@@ -1,6 +1,15 @@
 
 .list {
     margin-bottom: 30px;
+
+    &__add-button {
+        opacity: 0.4;
+
+        &:hover {
+            opacity: 1;
+        }
+    }
+
     li {
         display: flex;
         align-items: center;
@@ -17,10 +26,12 @@
         i {
             display: inline-flex;
             margin-right: 10px;
+
             img {
                 opacity: 0.6;
             }
         }
+
         .badge {
             width: 10px;
             height: 10px;
@@ -31,18 +42,34 @@
             &--green {
                 background-color: #42B883;
             }
+
             &--blue {
                 background-color: #64C4ED;
             }
+
             &--pink {
                 background-color: #FFBBCC;
             }
+
             &--green-2 {
                 background-color: #B6E6BD;
             }
+
             &--grey {
                 background-color: #C9D1D3;
             }
         }
+    }
+}
+
+.field {
+    background: #FFFFFF;
+    border: 1px solid #EFEFEF;
+    border-radius: 4px;
+    box-sizing: border-box;
+    padding: 8px 8px 8px 8px;
+
+    &:focus {
+        border-color: #afacac;
     }
 }
