@@ -28,6 +28,7 @@ const AddList = () => {
         />
         {visiblePopup && <div className="add-list__popup">
             <input className={'field'} type="text" placeholder="Название папки"/>
+            <button className="button">Добавить</button>
         </div>}
     </div>
 

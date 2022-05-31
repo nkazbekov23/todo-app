@@ -62,12 +62,20 @@
     }
 }
 
+.button {
+    width: 200px;
+    height: 37px;
+    background: #4DD599;
+    border-radius: 4px;
+}
+
 .field {
     background: #FFFFFF;
     border: 1px solid #EFEFEF;
     border-radius: 4px;
     box-sizing: border-box;
     padding: 8px 8px 8px 8px;
+    width: 100%;
 
     &:focus {
         border-color: #afacac;
