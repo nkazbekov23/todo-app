@@ -23,6 +23,11 @@
             border-radius: 4px;
         }
 
+        .badge {
+            position: relative;
+            left: 5px;
+        }
+
         i {
             display: inline-flex;
             margin-right: 10px;
@@ -32,41 +37,24 @@
             }
         }
 
-        .badge {
-            width: 10px;
-            height: 10px;
-            border-radius: 30px;
-            position: relative;
-            left: 3px;
 
-            &--green {
-                background-color: #42B883;
-            }
-
-            &--blue {
-                background-color: #64C4ED;
-            }
-
-            &--pink {
-                background-color: #FFBBCC;
-            }
-
-            &--green-2 {
-                background-color: #B6E6BD;
-            }
-
-            &--grey {
-                background-color: #C9D1D3;
-            }
-        }
     }
 }
 
 .button {
-    width: 200px;
-    height: 37px;
     background: #4DD599;
     border-radius: 4px;
+    color: #fff;
+    border: 0;
+    padding: 10px 20px;
+    cursor: pointer;
+
+    &:hover {
+        background-color: darken(#4DD599, 6%);
+    }
+    &:active {
+        background-color: darken(#4DD599, 10%);
+    }
 }
 
 .field {
