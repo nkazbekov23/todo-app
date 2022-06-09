@@ -3,11 +3,13 @@ import List from "../List";
 
 import './AddListButton.scss';
 import Badge from "../Badge";
+import closeButton from '../../assets/img/close.svg';
 
 const AddList = ({colors}) => {
 
     const [visiblePopup, setVisiblePopup] = useState(false);
-    console.log(visiblePopup);
+    const [selectedColor, selectColor] = useState(colors[0].id);
+    console.log(selectedColor);
 
     return <div className="add-list">
 
@@ -29,13 +31,19 @@ const AddList = ({colors}) => {
         />
         {
             visiblePopup && <div className="add-list__popup">
+                <img onClick={() => setVisiblePopup(false)} src={closeButton} alt={'закрыть'} className="add-list__popup-close-btn"></img>
                 <input className={'field'} type="text" placeholder="Название папки"/>
                 <div className="add-list__popup-colors">
                     <li>
                         <ul>
                             {
                                 colors.map(
-                                    color => <Badge key={color.id} color={color.name}/>
+                                    color => <Badge
+                                        onClick={() => selectColor(color.id)}
+                                        key={color.id}
+                                        color={color.name}
+                                        className={selectedColor === color.id && 'active'}
+                                    />
                                 )
                             }
                         </ul>
