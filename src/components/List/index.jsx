@@ -6,7 +6,6 @@ import classNames from "classnames";
 import Badge from "../Badge";
 
 const List = ({items, isRemovable, onClick}) => {
-    console.log(items, isRemovable);
 
     return <ul onClick={onClick} className="list">
         {

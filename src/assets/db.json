@@ -1,40 +1,25 @@
 
 {
+    "lists": [
+        {"id":  1, "name":  "Покупки", "colorId": 5},
+        {"id":  2, "name":  "Фронтенд", "colorId": 1},
+        {"id":  3, "name":  "Фильмы и сериалы", "colorId": 3},
+        {"id":  4, "name":  "Покупки", "colorId": 2},
+        {"id":  5, "name":  "Книги", "colorId": 4},
+        {"id":  6, "name":  "Спорт", "colorId": 6}
+    ],
+    "tasks": [
+        {"id": 1, "listId": 2, "text": "Изучить JavaScript"},
+        {"id": 2, "listId": 2, "text": "Изучить паттерны проектирование"},
+        {"id": 3, "listId": 2, "text": "React Hooks (userState, userReduce, userEffect ..)"}
+    ],
     "colors": [
-        {
-            "id": 1,
-            "hex": "#42b883",
-            "name": "pink"
-        },
-        {
-            "id": 2,
-            "hex": "#42b883",
-            "name": "green"
-        },
-        {
-            "id": 3,
-            "hex": "#42b883",
-            "name": "grey"
-        },
-        {
-            "id": 4,
-            "hex": "#42b883",
-            "name": "purple"
-        },
-        {
-            "id": 5,
-            "hex": "#42b883",
-            "name": "lime"
-        },
-        {
-            "id": 6,
-            "hex": "#42b883",
-            "name": "red"
-        },
-        {
-            "id": 7,
-            "hex": "#42b883",
-            "name": "black"
-        }
+        {"id": 1, "hex": "#42b883", "name": "pink"},
+        {"id": 2, "hex": "#42b883", "name": "green"},
+        {"id": 3, "hex": "#42b883", "name": "grey"},
+        {"id": 4, "hex": "#42b883", "name": "purple"},
+        {"id": 5, "hex": "#42b883", "name": "lime"},
+        {"id": 6, "hex": "#42b883", "name": "red"},
+        {"id": 7, "hex": "#42b883", "name": "black"}
     ]
 }

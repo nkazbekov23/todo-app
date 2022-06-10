@@ -9,7 +9,15 @@ const AddList = ({colors}) => {
 
     const [visiblePopup, setVisiblePopup] = useState(false);
     const [selectedColor, selectColor] = useState(colors[0].id);
-    console.log(selectedColor);
+    const [inputValue, setInputValue] = useState('');
+
+    const addList  = () => {
+        if(!inputValue) {
+            alert('Введите название списка');
+            return;
+        }
+        console.log({"id":  1, "name":  inputValue, "colorId": selectedColor})
+    }
 
     return <div className="add-list">
 
@@ -32,7 +40,15 @@ const AddList = ({colors}) => {
         {
             visiblePopup && <div className="add-list__popup">
                 <img onClick={() => setVisiblePopup(false)} src={closeButton} alt={'закрыть'} className="add-list__popup-close-btn"></img>
-                <input className={'field'} type="text" placeholder="Название папки"/>
+                <input value={inputValue}
+                       onChange={e => {
+
+                           setInputValue(e.target.value)
+
+                       }}
+                       className={'field'}
+                       type="text"
+                       placeholder="Название папки"/>
                 <div className="add-list__popup-colors">
                     <li>
                         <ul>
@@ -49,7 +65,7 @@ const AddList = ({colors}) => {
                         </ul>
                     </li>
                 </div>
-                <button className="button">Добавить</button>
+                <button onClick={addList} className="button">Добавить</button>
             </div>
         }
     </div>
