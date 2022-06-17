@@ -9,9 +9,18 @@ import DB from './assets/db.json'
 function App() {
     const [lists, setLists] = useState(DB.lists.map(item => {
         item.color = DB.colors.find(color => color.id === item.id).name
-        console.log(item)
         return item;
     }))
+
+    const onAddList = (obj) => {
+        const newList = [
+            ...lists,
+            obj
+        ];
+
+        setLists(newList);
+        console.log(newList);
+    }
 
     return (
         <div className='todo'>
@@ -34,7 +43,7 @@ function App() {
                 <List items={lists}
                       isRemovable
                 />
-               <AddList colors={DB.colors}/></div>
+               <AddList onAdd={onAddList} colors={DB.colors}/></div>
 
             <div className='todo__tasks'>
 
