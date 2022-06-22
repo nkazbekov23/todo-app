@@ -9,9 +9,9 @@
         {"id":  6, "name":  "Спорт", "colorId": 6}
     ],
     "tasks": [
-        {"id": 1, "listId": 2, "text": "Изучить JavaScript"},
-        {"id": 2, "listId": 2, "text": "Изучить паттерны проектирование"},
-        {"id": 3, "listId": 2, "text": "React Hooks (userState, userReduce, userEffect ..)"}
+        {"id": 1, "listId": 2, "text": "Изучить JavaScript", "completed":  true},
+        {"id": 2, "listId": 3, "text": "Изучить паттерны проектирование", "completed":  false},
+        {"id": 3, "listId": 4, "text": "React Hooks (userState, userReduce, userEffect ..)", "completed":  false}
     ],
     "colors": [
         {"id": 1, "hex": "#42b883", "name": "pink"},
