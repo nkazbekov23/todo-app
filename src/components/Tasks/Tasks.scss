@@ -23,7 +23,30 @@
     }
   }
 
+  &__items {
+    margin-top: 20px;
+    &-row {
+      display: flex;
+      align-items: center;
+    }
+    p {
+      margin-left: 15px;
+    }
+  }
+
   .checkbox {
+
+    input:checked + label  {
+
+      background: #4DD599;
+      border-color: #4DD599;
+      svg {
+        opacity: 1;
+        path {
+          stroke: #fff;
+        }
+      }
+    }
 
 
     input {
@@ -55,16 +78,9 @@
 
       svg {
         opacity: 0;
-        position: relative;
-        left: 1px;
-
       }
     }
 
-    input:checked + label  {
-      background: #4DD599;
-      border-color: #4DD599;
-    }
 
   }
 

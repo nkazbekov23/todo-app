@@ -18,9 +18,12 @@ function App() {
             ...lists,
             obj
         ];
-
         setLists(newList);
-        console.log(newList);
+    }
+
+    const removeItem = (item) => {
+        const newList = lists.filter(e => e.id !== item.id);
+        setLists(newList);
     }
 
     return (
@@ -43,7 +46,7 @@ function App() {
                 ]}/>
                 <List items={lists}
                       isRemovable
-                      onRemove={(item) => console.log(item)}
+                      onRemove={removeItem}
                 />
                <AddList onAdd={onAddList} colors={DB.colors}/></div>
 
