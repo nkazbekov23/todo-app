@@ -32,7 +32,7 @@ const AddList = ({colors, onAdd}) => {
             "name":  inputValue,
             "colorId": selectedColor
         }).then(({data}) => {
-            console.log(data)
+            onAdd(data);
         });
 
         /*onAdd({

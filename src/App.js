@@ -32,6 +32,9 @@ function App() {
 
     const removeItem = (item) => {
         const newList = lists.filter(e => e.id !== item.id);
+        axios.delete("http://localhost:3001/lists/"+item.id).then(({data}) => {
+            console.log(data);
+        })
         setLists(newList);
     }
 
