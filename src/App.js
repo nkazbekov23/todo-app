@@ -11,15 +11,15 @@ function App() {
 
     const [lists, setLists] = useState(null);
     const [colors, setColor] = useState(null);
+    const [selectedItem, setSelectItem] = useState(null);
 
     useEffect(() => {
         axios.get("http://localhost:3001/lists?_expand=color&_embed=tasks").then(res => {
             setLists(res.data);
-            console.log(res.data)
         });
         axios.get("http://localhost:3001/colors").then(res => {
             setColor(res.data)
-        })
+        });
     }, [])
 
     const onAddList = (obj) => {
@@ -57,15 +57,21 @@ function App() {
                     <List items={lists}
                           isRemovable
                           onRemove={removeItem}
+                          onClickItem={item => {
+                              setSelectItem(item);
+                          }}
+                          activeItem={selectedItem}
                     />
                 ) : (
                     'загрузка ...'
                 )}
 
-               <AddList onAdd={onAddList} colors={colors}/></div>
+               <AddList onAdd={onAddList} colors={colors}/>
+
+            </div>
 
             {
-                lists && <Tasks list={lists[1]}/>
+                lists && selectedItem && <Tasks list={selectedItem}/>
             }
 
         </div>
