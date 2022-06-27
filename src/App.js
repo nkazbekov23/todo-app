@@ -71,7 +71,7 @@ function App() {
             </div>
 
             {
-                lists && selectedItem && <Tasks list={selectedItem}/>
+                lists && selectedItem && <Tasks list={selectedItem} onEditTitle={(id) => console.log(id)}/>
             }
 
         </div>

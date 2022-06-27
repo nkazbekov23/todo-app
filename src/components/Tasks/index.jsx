@@ -5,9 +5,7 @@ import './Tasks.scss'
 import penSvg from '../../assets/img/pen.svg'
 
 
-const Tasks = ({list}) => {
-
-    console.log(list)
+const Tasks = ({list, onEditTitle}) => {
 
     return (
         <div className='todo__tasks'>
@@ -15,11 +13,14 @@ const Tasks = ({list}) => {
             <div className='tasks'>
 
                 <h2 className='tasks__title'>{list.name}
-                    <img src={penSvg} alt='edit icon'/>
+                    <img onClick={() => {onEditTitle(list.id)}} src={penSvg} alt='edit icon'/>
                 </h2>
 
 
                 <div className='tasks__items'>
+                    {
+                        !list.tasks.length && <h2>задачи отсутсвуют</h2>
+                    }
                     {
                         list.tasks.map(task =>
                             <div key={task.id} className="tasks__items-row">
