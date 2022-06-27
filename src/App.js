@@ -13,7 +13,7 @@ function App() {
     const [colors, setColor] = useState(null);
 
     useEffect(() => {
-        axios.get("http://localhost:3001/lists?_expand=color").then(res => {
+        axios.get("http://localhost:3001/lists?_expand=color&_embed=tasks").then(res => {
             setLists(res.data);
             console.log(res.data)
         });
@@ -32,9 +32,6 @@ function App() {
 
     const removeItem = (item) => {
         const newList = lists.filter(e => e.id !== item.id);
-        axios.delete("http://localhost:3001/lists/"+item.id).then(({data}) => {
-            console.log(data);
-        })
         setLists(newList);
     }
 
@@ -67,7 +64,9 @@ function App() {
 
                <AddList onAdd={onAddList} colors={colors}/></div>
 
-            <Tasks/>
+            {
+                lists && <Tasks list={lists[1]}/>
+            }
 
         </div>
     );

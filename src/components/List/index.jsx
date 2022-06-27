@@ -5,12 +5,15 @@ import classNames from "classnames";
 
 import Badge from "../Badge";
 import removeSvg from "../../assets/img/remove.svg"
+import axios from "axios";
 
 const List = ({items, isRemovable, onClick, onRemove}) => {
 
     const removeList = (item) => {
         if (window.confirm('вы действительно хотите удалить?')) {
-            onRemove(item);
+            axios.delete("http://localhost:3001/lists/"+item.id).then(() => {
+                onRemove(item);
+            });
         }
     }
 

@@ -29,6 +29,11 @@
       "id": 6,
       "name": "Спорт",
       "colorId": 6
+    },
+    {
+      "name": "1122",
+      "colorId": 5,
+      "id": 7
     }
   ],
   "tasks": [
@@ -49,6 +54,12 @@
       "listId": 4,
       "text": "React Hooks (userState, userReduce, userEffect ..)",
       "completed": false
+    },
+    {
+      "id": 4,
+      "listId": 2,
+      "text": "Изучить React js",
+      "completed": true
     }
   ],
   "colors": [

@@ -11,6 +11,8 @@ const AddList = ({colors, onAdd}) => {
     const [visiblePopup, setVisiblePopup] = useState(false);
     const [selectedColor, selectColor] = useState(3);
     const [inputValue, setInputValue] = useState('');
+    const [isLoading, setIsLoading] = useState(false);
+
 
     useEffect(() => {
         if (Array.isArray(colors)) {
@@ -23,24 +25,22 @@ const AddList = ({colors, onAdd}) => {
             alert('Введите название списка');
             return;
         }
-
-/*
-        const color = colors.filter(color => color.id === selectedColor)[0].id;
-*/
-
+        setIsLoading(true);
         axios.post("http://localhost:3001/lists", {
             "name":  inputValue,
             "colorId": selectedColor
         }).then(({data}) => {
-            onAdd(data);
-        });
 
-        /*onAdd({
-            "id":  Math.random(),
-            "name":  inputValue,
-            "color": color
-        });*/
-        onClose();
+            const color = colors.filter(c => c.id === selectedColor)[0].name;
+            const listObj = {...data, color: {name: color}}
+            onAdd(listObj);
+
+            onClose();
+            setIsLoading(false);
+
+        }).finally(() => {
+            setIsLoading(false);
+        })
     }
 
     const onClose = () => {
@@ -95,7 +95,11 @@ const AddList = ({colors, onAdd}) => {
                         </ul>
                     </li>
                 </div>
-                <button onClick={addList} className="button">Добавить</button>
+                <button onClick={addList} className="button">
+                    {
+                        isLoading ? 'Добавление...' : 'Добавить'
+                    }
+                </button>
             </div>
         }
     </div>
