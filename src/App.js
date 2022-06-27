@@ -35,6 +35,10 @@ function App() {
         setLists(newList);
     }
 
+    const onEditListTitle = (id, title) => {
+        console.log(id, title)
+    }
+
     return (
         <div className='todo'>
             <div className="todo__sidebar">
@@ -71,7 +75,7 @@ function App() {
             </div>
 
             {
-                lists && selectedItem && <Tasks list={selectedItem} onEditTitle={(id) => console.log(id)}/>
+                lists && selectedItem && <Tasks list={selectedItem} onEditTitle={onEditListTitle}/>
             }
 
         </div>

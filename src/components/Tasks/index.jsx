@@ -7,13 +7,20 @@ import penSvg from '../../assets/img/pen.svg'
 
 const Tasks = ({list, onEditTitle}) => {
 
+    const editTitle = () => {
+        const newTitle = window.prompt('Название нового заголовка', list.name);
+        if (newTitle) {
+            onEditTitle(list.id, newTitle);
+        }
+    }
+
     return (
         <div className='todo__tasks'>
 
             <div className='tasks'>
 
                 <h2 className='tasks__title'>{list.name}
-                    <img onClick={() => {onEditTitle(list.id)}} src={penSvg} alt='edit icon'/>
+                    <img onClick={editTitle} src={penSvg} alt='edit icon'/>
                 </h2>
 
 
