@@ -34,10 +34,7 @@ const AddList = ({colors, onAdd}) => {
             const color = colors.filter(c => c.id === selectedColor)[0].name;
             const listObj = {...data, color: {name: color}}
             onAdd(listObj);
-
             onClose();
-            setIsLoading(false);
-
         }).finally(() => {
             setIsLoading(false);
         })
