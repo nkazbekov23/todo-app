@@ -88,6 +88,19 @@
   &:active {
     background-color: darken(#4DD599, 10%);
   }
+
+  &--grey {
+    margin-left: 9px;
+    background: #F4F6F8;
+    color: #9C9C9C;
+    &:hover {
+      background: darken(#F4F6F8, 5%);
+    }
+    &:active {
+      background: darken(#F4F6F8, 10%);
+    }
+  }
+
 }
 
 .field {

@@ -92,7 +92,34 @@
       }
     }
 
+  }
 
+  &__form {
+     &-new {
+       display: flex;
+       align-items: center;
+       margin-top: 30px;
+
+       img {
+         width: 16px;
+         height: 16px;
+         cursor: pointer;
+         opacity: 0.5;
+
+         &:hover {
+           opacity: 1;
+         }
+       }
+
+       span {
+        color: #B4B4B4;
+         font-size: 16px;
+         margin-left: 19px;
+       }
+     }
+    &-block {
+
+    }
   }
 
 

@@ -1,16 +1,23 @@
 import React from "react";
+import axios from "axios";
 
 import './Tasks.scss'
+import AddTasksForm from "./AddTasksForm";
 
 import penSvg from '../../assets/img/pen.svg'
-
 
 const Tasks = ({list, onEditTitle}) => {
 
     const editTitle = () => {
         const newTitle = window.prompt('Название нового заголовка', list.name);
         if (newTitle) {
-            onEditTitle(list.id, newTitle);
+            axios.patch("http://localhost:3001/lists/"+list.id, {
+                name: newTitle
+            }).then(() => {
+                onEditTitle(list.id, newTitle);
+            }).catch(() => {
+                alert('не удлаось обновить название списка!')
+            })
         }
     }
 
@@ -43,6 +50,8 @@ const Tasks = ({list, onEditTitle}) => {
                             </div>
                         )
                     }
+
+                    <AddTasksForm/>
 
                 </div>
 
