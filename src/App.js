@@ -56,6 +56,17 @@ function App() {
         setLists(newList);
     }
 
+    const onRemoveTask = (listId, taskId) => {
+        const newList = lists.map(item => {
+            if (item.id === listId) {
+                const newTaskList = item.tasks.filter(item => item.id !== taskId);
+                item.tasks = newTaskList
+            }
+            return item;
+        });
+        setLists(newList);
+    }
+
     return (
         <div className='todo'>
             <div className="todo__sidebar">
@@ -94,7 +105,7 @@ function App() {
             {
                 lists &&
                 selectedItem &&
-                <Tasks list={selectedItem} onEditTitle={onEditListTitle} onAddTask={onAddTask}/>
+                <Tasks list={selectedItem} onEditTitle={onEditListTitle} onAddTask={onAddTask} onRemoveTask={onRemoveTask}/>
             }
 
         </div>

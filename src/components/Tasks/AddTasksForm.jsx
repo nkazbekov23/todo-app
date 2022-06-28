@@ -26,11 +26,10 @@ const AddTasksForm = ({list, onAddTask}) => {
         setIsLoading(true);
         axios.post("http://localhost:3001/tasks", taskObj).then(({data}) => {
            onAddTask(list.id, data);
+            toggleFormVisible();
         })
             .finally(() => setIsLoading(false))
             .catch(() => alert('не удалось добавить задачу'))
-
-        toggleFormVisible();
     }
 
     return <div className="tasks__form">
@@ -47,7 +46,7 @@ const AddTasksForm = ({list, onAddTask}) => {
                            className="field"
                            type="text"
                            placeholder="Название папки"/>
-                    <button onClick={addTask} className="button">
+                    <button disabled={isLoading} onClick={addTask} className="button">
                         {
                             isLoading ? 'Добавление' : 'Добавить задачу'
                         }

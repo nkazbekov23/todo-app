@@ -7,7 +7,7 @@ import AddTasksForm from "./AddTasksForm";
 import penSvg from '../../assets/img/pen.svg'
 import deleteSvg from '../../assets/img/remove.svg'
 
-const Tasks = ({list, onEditTitle, onAddTask}) => {
+const Tasks = ({list, onEditTitle, onAddTask, onRemoveTask}) => {
 
     const editTitle = () => {
         const newTitle = window.prompt('Название нового заголовка', list.name);
@@ -18,6 +18,14 @@ const Tasks = ({list, onEditTitle, onAddTask}) => {
                 onEditTitle(list.id, newTitle);
             }).catch(() => {
                 alert('не удлаось обновить название списка!');
+            })
+        }
+    }
+
+    const onDeleteTask = (taskId, text) => {
+        if (window.confirm(`вы действиельно хотите удалить задачу ${text}?`)) {
+            axios.delete("http://localhost:3001/tasks/"+taskId).then(() => {
+                onRemoveTask(list.id, taskId);
             })
         }
     }
@@ -48,7 +56,7 @@ const Tasks = ({list, onEditTitle, onAddTask}) => {
                                     </label>
                                 </div>
                                 <p>{task.text}</p>
-                                <img src={deleteSvg} alt="remove"/>
+                                <img onClick={() => onDeleteTask(task.id, task.text)} src={deleteSvg} alt="remove"/>
                             </div>
                         )
                     }

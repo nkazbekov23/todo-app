@@ -1,11 +1,6 @@
 {
   "lists": [
     {
-      "id": 1,
-      "name": "Покупки",
-      "colorId": 5
-    },
-    {
       "id": 2,
       "name": "Фронтенд",
       "colorId": 1
@@ -17,7 +12,7 @@
     },
     {
       "id": 4,
-      "name": "Покупки new123",
+      "name": "Покупки",
       "colorId": 2
     },
     {
@@ -44,18 +39,6 @@
       "completed": true
     },
     {
-      "id": 2,
-      "listId": 3,
-      "text": "Изучить паттерны проектирование",
-      "completed": false
-    },
-    {
-      "id": 3,
-      "listId": 4,
-      "text": "React Hooks (userState, userReduce, userEffect ..)",
-      "completed": false
-    },
-    {
       "id": 4,
       "listId": 2,
       "text": "Изучить React js",
@@ -73,19 +56,8 @@
     },
     {
       "listId": 2,
-      "text": "1",
-      "id": 7
-    },
-    {
-      "listId": 2,
       "text": "html",
       "id": 8
-    },
-    {
-      "listId": 1,
-      "text": "картошка",
-      "completed": false,
-      "id": 9
     },
     {
       "listId": 5,
@@ -112,28 +84,28 @@
       "id": 13
     },
     {
-      "listId": 7,
-      "text": "тест",
+      "listId": 2,
+      "text": "node js",
       "completed": false,
-      "id": 14
+      "id": 22
     },
     {
-      "listId": 7,
-      "text": "22222222222",
+      "listId": 6,
+      "text": "хоккей",
       "completed": false,
-      "id": 15
+      "id": 23
     },
     {
-      "listId": 7,
-      "text": "1212",
+      "listId": 4,
+      "text": "помидоры",
       "completed": false,
-      "id": 16
+      "id": 24
     },
     {
-      "listId": 7,
-      "text": "1",
+      "listId": 4,
+      "text": "огурцы",
       "completed": false,
-      "id": 17
+      "id": 25
     }
   ],
   "colors": [
