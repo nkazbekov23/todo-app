@@ -34,11 +34,6 @@
       "name": "snowboard",
       "colorId": 5,
       "id": 7
-    },
-    {
-      "name": "11",
-      "colorId": 3,
-      "id": 8
     }
   ],
   "tasks": [
@@ -65,6 +60,80 @@
       "listId": 2,
       "text": "Изучить React js",
       "completed": true
+    },
+    {
+      "listId": 2,
+      "text": "redux",
+      "id": 5
+    },
+    {
+      "listId": 2,
+      "text": "css",
+      "id": 6
+    },
+    {
+      "listId": 2,
+      "text": "1",
+      "id": 7
+    },
+    {
+      "listId": 2,
+      "text": "html",
+      "id": 8
+    },
+    {
+      "listId": 1,
+      "text": "картошка",
+      "completed": false,
+      "id": 9
+    },
+    {
+      "listId": 5,
+      "text": "Чынгыз Айтматов",
+      "completed": false,
+      "id": 10
+    },
+    {
+      "listId": 6,
+      "text": "Футбол",
+      "completed": false,
+      "id": 11
+    },
+    {
+      "listId": 3,
+      "text": "Игра Престолов",
+      "completed": false,
+      "id": 12
+    },
+    {
+      "listId": 7,
+      "text": "покататься на борде",
+      "completed": false,
+      "id": 13
+    },
+    {
+      "listId": 7,
+      "text": "тест",
+      "completed": false,
+      "id": 14
+    },
+    {
+      "listId": 7,
+      "text": "22222222222",
+      "completed": false,
+      "id": 15
+    },
+    {
+      "listId": 7,
+      "text": "1212",
+      "completed": false,
+      "id": 16
+    },
+    {
+      "listId": 7,
+      "text": "1",
+      "completed": false,
+      "id": 17
     }
   ],
   "colors": [

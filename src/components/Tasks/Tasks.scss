@@ -95,6 +95,17 @@
   }
 
   &__form {
+
+    &-block {
+      .button--grey {
+        margin-left: 10px;
+        margin-top: 15px;
+      }
+      input {
+        margin-top: 20px;
+      }
+
+    }
      &-new {
        display: flex;
        align-items: center;

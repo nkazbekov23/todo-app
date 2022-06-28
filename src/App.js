@@ -18,7 +18,7 @@ function App() {
             setLists(res.data);
         });
         axios.get("http://localhost:3001/colors").then(res => {
-            setColor(res.data)
+            setColor(res.data);
         });
     }, [])
 
@@ -28,6 +28,16 @@ function App() {
             obj
         ];
         setLists(newList);
+    }
+
+    const onAddTask = (listId, obj) => {
+            const newList = lists.map(item => {
+                if (item.id === listId) {
+                    item.tasks = [...item.tasks, obj]
+                }
+                return item;
+            })
+            setLists(newList);
     }
 
     const removeItem = (item) => {
@@ -82,7 +92,9 @@ function App() {
             </div>
 
             {
-                lists && selectedItem && <Tasks list={selectedItem} onEditTitle={onEditListTitle}/>
+                lists &&
+                selectedItem &&
+                <Tasks list={selectedItem} onEditTitle={onEditListTitle} onAddTask={onAddTask}/>
             }
 
         </div>

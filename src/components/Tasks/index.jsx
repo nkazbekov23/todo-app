@@ -5,8 +5,9 @@ import './Tasks.scss'
 import AddTasksForm from "./AddTasksForm";
 
 import penSvg from '../../assets/img/pen.svg'
+import deleteSvg from '../../assets/img/remove.svg'
 
-const Tasks = ({list, onEditTitle}) => {
+const Tasks = ({list, onEditTitle, onAddTask}) => {
 
     const editTitle = () => {
         const newTitle = window.prompt('Название нового заголовка', list.name);
@@ -16,7 +17,7 @@ const Tasks = ({list, onEditTitle}) => {
             }).then(() => {
                 onEditTitle(list.id, newTitle);
             }).catch(() => {
-                alert('не удлаось обновить название списка!')
+                alert('не удлаось обновить название списка!');
             })
         }
     }
@@ -47,11 +48,12 @@ const Tasks = ({list, onEditTitle}) => {
                                     </label>
                                 </div>
                                 <p>{task.text}</p>
+                                <img src={deleteSvg} alt="remove"/>
                             </div>
                         )
                     }
 
-                    <AddTasksForm/>
+                    <AddTasksForm list={list} onAddTask={onAddTask}/>
 
                 </div>
 
