@@ -33,11 +33,13 @@ const Tasks = ({list, onEditTitle, onAddTask, onRemoveTask, withoutEmpty, onEdit
 
     const onEditTask = (text, taskId) => {
         const newText = window.prompt('новое название', text);
-        axios.patch("http://localhost:3001/tasks/"+taskId, {
-            text: newText
-        }).then(({data}) => {
-            onEditTaskName(list.id, taskId, data);
-        });
+        if (newText) {
+            axios.patch("http://localhost:3001/tasks/" + taskId, {
+                text: newText
+            }).then(({data}) => {
+                onEditTaskName(list.id, taskId, data);
+            });
+        }
     }
 
     return (

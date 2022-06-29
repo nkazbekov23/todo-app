@@ -38,24 +38,6 @@
   ],
   "tasks": [
     {
-      "id": 4,
-      "listId": 2,
-      "text": "Изучить React js",
-      "completed": true
-    },
-    {
-      "listId": 2,
-      "text": "redux",
-      "completed": false,
-      "id": 5
-    },
-    {
-      "listId": 2,
-      "text": "html",
-      "completed": false,
-      "id": 6
-    },
-    {
       "listId": 5,
       "text": "Чынгыз Айтматов",
       "completed": false,
@@ -78,12 +60,6 @@
       "text": "покататься на борде",
       "completed": false,
       "id": 13
-    },
-    {
-      "listId": 2,
-      "text": "node js",
-      "completed": false,
-      "id": 22
     },
     {
       "listId": 6,
@@ -111,9 +87,21 @@
     },
     {
       "listId": 8,
-      "text": null,
+      "text": "buble sorting",
       "completed": false,
       "id": 27
+    },
+    {
+      "listId": 2,
+      "text": "React js",
+      "completed": false,
+      "id": 28
+    },
+    {
+      "listId": 2,
+      "text": "Redux",
+      "completed": false,
+      "id": 29
     }
   ],
   "colors": [
