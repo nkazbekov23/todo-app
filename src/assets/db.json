@@ -47,16 +47,19 @@
     {
       "listId": 2,
       "text": "redux",
+      "completed": false,
       "id": 5
     },
     {
       "listId": 2,
       "text": "css",
+      "completed": false,
       "id": 6
     },
     {
       "listId": 2,
       "text": "html",
+      "completed": false,
       "id": 8
     },
     {
