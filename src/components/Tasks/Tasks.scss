@@ -1,4 +1,9 @@
 .tasks {
+
+  &:not(:last-of-type) {
+    margin-bottom: 40px;
+  }
+
   &__title {
     font-family: 'Montserrat';
     font-weight: 700;
@@ -20,6 +25,46 @@
         opacity: 3;
         cursor: pointer;
       }
+    }
+
+    &--green {
+      color: #42B883;
+    }
+
+    &--blue {
+      color: #64C4ED;
+    }
+
+    &--pink {
+      color: #FFBBCC;
+    }
+
+    &--green-2 {
+      color: #B6E6BD;
+    }
+
+    &--grey {
+      color: #C9D1D3;
+    }
+
+    &--blue {
+      color: #64C4ED;
+    }
+
+    &--lime {
+      color: #64C4ED;
+    }
+
+    &--purple {
+     color: #C355F5;
+    }
+
+    &--black {
+      color: #09011A;
+    }
+
+    &--red {
+     color: #FF6464;
     }
   }
 

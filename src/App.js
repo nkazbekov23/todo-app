@@ -1,5 +1,6 @@
 import React, {useState, useEffect} from "react";
 import axios from "axios";
+import {Route, Routes, useNavigate, useLocation} from 'react-router-dom';
 
 import './App.css';
 import List from './components/List'
@@ -12,6 +13,8 @@ function App() {
     const [lists, setLists] = useState(null);
     const [colors, setColor] = useState(null);
     const [selectedItem, setSelectItem] = useState(null);
+    let navigate = useNavigate();
+    let location = useLocation();
 
     useEffect(() => {
         axios.get("http://localhost:3001/lists?_expand=color&_embed=tasks").then(res => {
@@ -20,7 +23,15 @@ function App() {
         axios.get("http://localhost:3001/colors").then(res => {
             setColor(res.data);
         });
-    }, [])
+    }, []);
+
+    useEffect(() => {
+        const listId = location.pathname.split('/')[2];
+        if(lists) {
+            const list = lists.find(list => list.id === parseInt(listId));
+            setSelectItem(list);
+        }
+    }, [lists, location.pathname])
 
     const onAddList = (obj) => {
         const newList = [
@@ -70,7 +81,12 @@ function App() {
     return (
         <div className='todo'>
             <div className="todo__sidebar">
-                <List items={[
+                <List
+                    onClickItem={item => {
+                    navigate('/')
+                    setSelectItem(item);}}
+
+                    items={[
                     {
                         icon: (
                             <svg width="14" height="12" viewBox="0 0 14 12" fill="none"
@@ -90,7 +106,7 @@ function App() {
                           isRemovable
                           onRemove={removeItem}
                           onClickItem={item => {
-                              setSelectItem(item);
+                              navigate(`/lists/${item.id}`);
                           }}
                           activeItem={selectedItem}
                     />
@@ -102,11 +118,22 @@ function App() {
 
             </div>
 
-            {
-                lists &&
-                selectedItem &&
-                <Tasks list={selectedItem} onEditTitle={onEditListTitle} onAddTask={onAddTask} onRemoveTask={onRemoveTask}/>
-            }
+            <div className="todo__tasks">
+                <Routes>
+                    <Route exact path='/' element={
+                       lists && lists.map(list =>
+                            <Tasks key={list.id} list={list} onEditTitle={onEditListTitle} onAddTask={onAddTask} onRemoveTask={onRemoveTask} withoutEmpty/>)
+                    }/>
+                    <Route exact path="/lists/:id" element=
+                        {
+                        lists &&
+                        selectedItem &&
+                        <Tasks list={selectedItem} onEditTitle={onEditListTitle} onAddTask={onAddTask} onRemoveTask={onRemoveTask}/>
+                        }/>
+                </Routes>
+            </div>
+
+
 
         </div>
     );

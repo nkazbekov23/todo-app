@@ -1,5 +1,6 @@
 import React from "react";
 import axios from "axios";
+import classNames from "classnames";
 
 import './Tasks.scss'
 import AddTasksForm from "./AddTasksForm";
@@ -7,7 +8,7 @@ import AddTasksForm from "./AddTasksForm";
 import penSvg from '../../assets/img/pen.svg'
 import deleteSvg from '../../assets/img/remove.svg'
 
-const Tasks = ({list, onEditTitle, onAddTask, onRemoveTask}) => {
+const Tasks = ({list, onEditTitle, onAddTask, onRemoveTask, withoutEmpty}) => {
 
     const editTitle = () => {
         const newTitle = window.prompt('Название нового заголовка', list.name);
@@ -31,18 +32,16 @@ const Tasks = ({list, onEditTitle, onAddTask, onRemoveTask}) => {
     }
 
     return (
-        <div className='todo__tasks'>
-
             <div className='tasks'>
-
-                <h2 className='tasks__title'>{list.name}
+                <h2 className={classNames('tasks__title',  {[`tasks__title--${list.color.name}`] : list.color.name})}>
+                    {list.name}
                     <img onClick={editTitle} src={penSvg} alt='edit icon'/>
                 </h2>
 
 
                 <div className='tasks__items'>
                     {
-                        !list.tasks.length && <h2>задачи отсутсвуют</h2>
+                       !withoutEmpty && !list.tasks.length && <h2>задачи отсутсвуют</h2>
                     }
                     {
                         list.tasks.map(task =>
@@ -61,14 +60,17 @@ const Tasks = ({list, onEditTitle, onAddTask, onRemoveTask}) => {
                         )
                     }
 
-                    <AddTasksForm list={list} onAddTask={onAddTask}/>
+                    {
+                      <AddTasksForm list={list} onAddTask={onAddTask}/>
+                    }
+
 
                 </div>
 
             </div>
 
 
-        </div>
+
     )
 
 }

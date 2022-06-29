@@ -29,6 +29,11 @@
       "name": "snowboard",
       "colorId": 5,
       "id": 7
+    },
+    {
+      "name": "algoritm",
+      "colorId": 4,
+      "id": 8
     }
   ],
   "tasks": [
@@ -55,12 +60,6 @@
       "text": "css",
       "completed": false,
       "id": 6
-    },
-    {
-      "listId": 2,
-      "text": "html",
-      "completed": false,
-      "id": 8
     },
     {
       "listId": 5,
@@ -109,6 +108,18 @@
       "text": "огурцы",
       "completed": false,
       "id": 25
+    },
+    {
+      "listId": 3,
+      "text": "Саке",
+      "completed": false,
+      "id": 26
+    },
+    {
+      "listId": 8,
+      "text": "сортировка пузырьком",
+      "completed": false,
+      "id": 27
     }
   ],
   "colors": [
