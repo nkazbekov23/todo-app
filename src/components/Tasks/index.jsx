@@ -8,7 +8,7 @@ import AddTasksForm from "./AddTasksForm";
 import penSvg from '../../assets/img/pen.svg'
 import deleteSvg from '../../assets/img/remove.svg'
 
-const Tasks = ({list, onEditTitle, onAddTask, onRemoveTask, withoutEmpty}) => {
+const Tasks = ({list, onEditTitle, onAddTask, onRemoveTask, withoutEmpty, onEditTaskName}) => {
 
     const editTitle = () => {
         const newTitle = window.prompt('Название нового заголовка', list.name);
@@ -29,6 +29,15 @@ const Tasks = ({list, onEditTitle, onAddTask, onRemoveTask, withoutEmpty}) => {
                 onRemoveTask(list.id, taskId);
             })
         }
+    }
+
+    const onEditTask = (text, taskId) => {
+        const newText = window.prompt('новое название', text);
+        axios.patch("http://localhost:3001/tasks/"+taskId, {
+            text: newText
+        }).then(({data}) => {
+            onEditTaskName(list.id, taskId, data);
+        });
     }
 
     return (
@@ -55,6 +64,7 @@ const Tasks = ({list, onEditTitle, onAddTask, onRemoveTask, withoutEmpty}) => {
                                     </label>
                                 </div>
                                 <p>{task.text}</p>
+                                <img onClick={() => onEditTask(task.text, task.id)} src={penSvg} alt="edit"/>
                                 <img onClick={() => onDeleteTask(task.id, task.text)} src={deleteSvg} alt="remove"/>
                             </div>
                         )

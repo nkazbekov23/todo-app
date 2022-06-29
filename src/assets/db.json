@@ -38,12 +38,6 @@
   ],
   "tasks": [
     {
-      "id": 1,
-      "listId": 2,
-      "text": "Изучить JavaScript",
-      "completed": true
-    },
-    {
       "id": 4,
       "listId": 2,
       "text": "Изучить React js",
@@ -57,7 +51,7 @@
     },
     {
       "listId": 2,
-      "text": "css",
+      "text": "html",
       "completed": false,
       "id": 6
     },
@@ -93,7 +87,7 @@
     },
     {
       "listId": 6,
-      "text": "хоккей",
+      "text": "hockey",
       "completed": false,
       "id": 23
     },
@@ -117,7 +111,7 @@
     },
     {
       "listId": 8,
-      "text": "сортировка пузырьком",
+      "text": null,
       "completed": false,
       "id": 27
     }
