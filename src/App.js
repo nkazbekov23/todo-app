@@ -79,11 +79,15 @@ function App() {
     }
 
     const onEditTaskName = (listId, taskId, data) => {
+
+    }
+
+    const onUpdateList = (listId, taskId, newData) => {
         const newList = lists.map(item => {
             if (item.id === listId) {
                 const newTaskList = item.tasks.map(task => {
                     if (task.id === taskId) {
-                        task = data;
+                        task = newData;
                     }
                     return task;
                 });
@@ -93,6 +97,7 @@ function App() {
         });
         setLists(newList);
     }
+
 
     return (
         <div className='todo'>
@@ -144,12 +149,10 @@ function App() {
                         {
                         lists &&
                         selectedItem &&
-                        <Tasks list={selectedItem} onEditTitle={onEditListTitle} onAddTask={onAddTask} onRemoveTask={onRemoveTask} onEditTaskName={onEditTaskName}/>
+                        <Tasks list={selectedItem} onEditTitle={onEditListTitle} onAddTask={onAddTask} onRemoveTask={onRemoveTask} onEditTaskName={onUpdateList} onComplete={onUpdateList}/>
                         }/>
                 </Routes>
             </div>
-
-
 
         </div>
     );
