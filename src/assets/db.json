@@ -88,7 +88,7 @@
     {
       "listId": 8,
       "text": "buble sorting",
-      "completed": false,
+      "completed": true,
       "id": 27
     },
     {
@@ -100,7 +100,7 @@
     {
       "listId": 2,
       "text": "Redux",
-      "completed": false,
+      "completed": true,
       "id": 29
     }
   ],

@@ -8,7 +8,7 @@ import AddTasksForm from "./AddTasksForm";
 import penSvg from '../../assets/img/pen.svg'
 import Task from "./Task";
 
-const Tasks = ({list, onEditTitle, onAddTask, onRemoveTask, withoutEmpty, onEditTaskName}) => {
+const Tasks = ({list, onEditTitle, onAddTask, onRemoveTask, withoutEmpty, onEditTaskName, onComplete}) => {
 
     const editTitle = () => {
         const newTitle = window.prompt('Название нового заголовка', list.name);
@@ -42,9 +42,9 @@ const Tasks = ({list, onEditTitle, onAddTask, onRemoveTask, withoutEmpty, onEdit
         }
     }
 
-    const onComplete = (listId, taskId, checked) => {
+    const onCompletedTask = (listId, taskId, completed) => {
         axios.patch("http://localhost:3001/tasks/" + taskId, {
-            completed: checked
+            completed
         }).then(({data}) => {
             onComplete(listId, taskId, data);
         });
@@ -57,11 +57,10 @@ const Tasks = ({list, onEditTitle, onAddTask, onRemoveTask, withoutEmpty, onEdit
                     <img onClick={editTitle} src={penSvg} alt='edit icon'/>
                 </h2>
 
-
                 <div className='tasks__items'>
                     {!withoutEmpty && !list.tasks.length && <h2>задачи отсутсвуют</h2>}
 
-                    {list.tasks.map(task => <Task key={task.id} {...task} onDeleteTask={onDeleteTask} onEditTask={onEditTask} onComplete={onComplete} list={list}/>)}
+                    {list.tasks.map(task => <Task key={task.id} {...task} onDeleteTask={onDeleteTask} onEditTask={onEditTask} onComplete={onCompletedTask} list={list}/>)}
 
                     {<AddTasksForm list={list} onAddTask={onAddTask}/>}
 
