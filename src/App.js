@@ -98,29 +98,6 @@ function App() {
         setLists(newList);
     }
 
-    const onCompleteTask = (listId, taskId, completed) => {
-        const newList = lists.map(list => {
-            if (list.id === listId) {
-                list.tasks = list.tasks.map(task => {
-                    if (task.id === taskId) {
-                        task.completed = completed;
-                    }
-                    return task;
-                });
-            }
-            return list;
-        });
-        setLists(newList);
-        axios
-            .patch('http://localhost:3001/tasks/' + taskId, {
-                completed
-            })
-            .catch(() => {
-                alert('Не удалось обновить задачу');
-            });
-    };
-
-
     return (
         <div className='todo'>
             <div className="todo__sidebar">
